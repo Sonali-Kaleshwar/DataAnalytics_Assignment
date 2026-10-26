@@ -1,0 +1,118 @@
+{
+  "original_rows": 346860,
+  "column_names": [
+    "Unnamed: 0",
+    "order_id",
+    "assignment_id",
+    "user_id",
+    "assistment_id",
+    "problem_id",
+    "original",
+    "correct",
+    "attempt_count",
+    "ms_first_response",
+    "tutor_mode",
+    "answer_type",
+    "sequence_id",
+    "student_class_id",
+    "position",
+    "type",
+    "base_sequence_id",
+    "skill_id",
+    "skill_name",
+    "teacher_id",
+    "school_id",
+    "hint_count",
+    "hint_total",
+    "overlap_time",
+    "template_id",
+    "answer_id",
+    "answer_text",
+    "first_action",
+    "bottom_hint",
+    "opportunity",
+    "opportunity_original"
+  ],
+  "missing_skill_name": 72270,
+  "unique_students": 4217,
+  "unique_questions": 26688,
+  "retained_rows": 274590,
+  "unique_skills": 101,
+  "training_rows": 219672,
+  "test_rows": 54918,
+  "train_correct_rate": 0.6502,
+  "test_correct_rate": 0.7077,
+  "train_max_order_id": "35627697",
+  "test_min_order_id": "35627798",
+  "model_features": [
+    "student_prior_n",
+    "student_prior_rate",
+    "skill_prior_n",
+    "skill_prior_rate",
+    "student_skill_prior_n",
+    "student_skill_prior_rate",
+    "skill_name"
+  ],
+  "metrics": {
+    "Majority baseline": {
+      "accuracy": 0.7077,
+      "precision": 0.7077,
+      "recall": 1.0,
+      "f1": 0.8289,
+      "roc_auc": 0.5,
+      "brier": 0.2102,
+      "confusion_matrix": [
+        [
+          0,
+          16051
+        ],
+        [
+          0,
+          38867
+        ]
+      ]
+    },
+    "Logistic Regression": {
+      "accuracy": 0.7309,
+      "precision": 0.7515,
+      "recall": 0.9259,
+      "f1": 0.8296,
+      "roc_auc": 0.6829,
+      "brier": 0.1872,
+      "confusion_matrix": [
+        [
+          4151,
+          11900
+        ],
+        [
+          2881,
+          35986
+        ]
+      ]
+    },
+    "Decision Tree": {
+      "accuracy": 0.7172,
+      "precision": 0.7402,
+      "recall": 0.925,
+      "f1": 0.8224,
+      "roc_auc": 0.6697,
+      "brier": 0.1902,
+      "confusion_matrix": [
+        [
+          3435,
+          12616
+        ],
+        [
+          2915,
+          35952
+        ]
+      ]
+    }
+  },
+  "notes": [
+    "Prediction is first-attempt correctness as labelled by the dataset; no current-attempt hint_count or attempt_count used.",
+    "Ordering assumes order_id captures interaction chronology. Validate this if additional timestamps become available.",
+    "Historical features for held-out records use earlier observed labels, representing sequential deployment; this is not a cold-start evaluation.",
+    "The prediction model is not automatically retrained when new CSV records are imported."
+  ]
+}
